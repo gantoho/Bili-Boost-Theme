@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "B站主题增强",
+  "version": "0.0.1",
+  "description": "增强哔哩哔哩主题",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "pages/popup.html",
+    "default_icon": {
+      "16": "images/bili-boost-icon.png",
+      "48": "images/bili-boost-icon.png",
+      "128": "images/bili-boost-icon.png"
+    }
+  },
+  "icons": {
+    "16": "images/bili-boost-icon.png",
+    "48": "images/bili-boost-icon.png",
+    "128": "images/bili-boost-icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.bilibili.com/*"],
+      "js": ["scripts/content.js"],
+      "css": ["styles/styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  }
+}
